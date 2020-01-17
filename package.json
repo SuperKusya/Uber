@@ -28,7 +28,6 @@
     "gulp": "^4.0.2",
     "gulp-imagemin": "^6.2.0",
     "lodash.template": ">=4.5.0",
-    "sass-lint": "^1.13.1",
     "svgxuse": "^1.2.6"
   }
 }
