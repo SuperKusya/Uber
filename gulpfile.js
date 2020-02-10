@@ -5,6 +5,7 @@ const {
     parallel,
     series
 } = require('gulp');
+const htmlmin = require('gulp-htmlmin');
 const browserSync = require("browser-sync");
 const sass = require("gulp-sass");
 const rename = require("gulp-rename");
@@ -28,16 +29,26 @@ const path = {
         fonts: 'dist/fonts/'
     },
     app: {
-        html: ['app/*.html', 'app/*.ico'],
+        html: 'app/*.html',
         js: 'app/js/*.js',
         scss: 'app/sass/*.+(scss|sass)',
-        css: 'app/css/*.css',
         img: 'app/img/**/*.*',
         icons: 'app/icons/**/*.svg',
         fonts: 'app/fonts/**/*.*'
     },
     clean: './dist/',
     deploy: 'dist/**/*'
+}
+
+function html() {
+    return src(path.app.html)
+        .pipe(
+            htmlmin({ 
+                collapseWhitespace: true 
+            })
+        )
+        .pipe(dest(path.dist.html)
+    );
 }
 
 function svg() {
@@ -88,10 +99,6 @@ function images() {
             })
         ])))
         .pipe(dest(path.dist.img));
-}
-
-function html() {
-    return src(path.app.html).pipe(dest(path.dist.html));
 }
 
 function fonts() {
