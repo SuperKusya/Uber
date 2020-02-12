@@ -22,8 +22,8 @@ const svgSprite = require('gulp-svg-sprite');
 const path = {
     dist: {
         html: 'dist/',
-        js: 'dist/js/',
-        css: 'dist/css/',
+        js: 'dist/',
+        css: 'dist/',
         img: 'dist/img/',
         icons: 'dist/icons/',
         fonts: 'dist/fonts/'
